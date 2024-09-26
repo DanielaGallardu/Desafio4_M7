@@ -19,18 +19,18 @@ function handleDelete(id) {
     <table class="table table-hover table-cereza">
       <thead class="bg-cereza text-white">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">N°</th>
           <th scope="col">Nombre</th>
           <th scope="col">Correo</th>
-          <th scope="col">Acciones</th>
+          <th scope="col" class="text-center">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(usuario, idx) in usuariosStore.usuarios" :key="usuario.id">
           <th scope="row">{{ idx + 1 }}</th>
-          <td>{{ usuario.nombre || 'Sin nombre' }}</td>
-          <td>{{ usuario.correo || 'Sin correo' }}</td>
-          <td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.correo }}</td>
+          <td class="text-center">
             <button class="btn btn-eliminar" @click="handleDelete(usuario.id)">Eliminar</button>
           </td>
         </tr>
@@ -42,7 +42,6 @@ function handleDelete(id) {
 <style scoped>
 .table-cereza {
   border: 2px solid #a83246;
-  /* Borde color cereza */
 }
 
 .table-cereza th,
@@ -53,7 +52,6 @@ function handleDelete(id) {
 
 .bg-cereza {
   background-color: #a83246;
-
 }
 
 .btn-eliminar {
@@ -64,11 +62,13 @@ function handleDelete(id) {
 
 .btn-eliminar:hover {
   background-color: #8e293c;
-
 }
 
 tbody tr:hover {
   background-color: #f7d6dc;
+}
 
+.text-center {
+  text-align: center;
 }
 </style>
